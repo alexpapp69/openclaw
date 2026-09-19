@@ -1,6 +1,7 @@
 filters:
   and:
     - file.inFolder("trading/obchody")
+    - 'typ == "obchod"'
 properties:
   symbol:
     displayName: Symbol
@@ -14,12 +15,12 @@ properties:
     displayName: Vystupna hranica
   riziko_usd:
     displayName: Riziko USD
-  hodnota_usd:
-    displayName: Hodnota USD
   stav:
     displayName: Stav
   datum_vstupu:
     displayName: Datum vstupu
+  vysledok_r:
+    displayName: Vysledok
 views:
   - type: table
     name: Obchody
@@ -30,6 +31,7 @@ views:
       - vstup
       - stopka
       - vystupna_hranica
+      - vysledok_r
       - riziko_usd
       - stav
       - datum_vstupu

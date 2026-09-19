@@ -1,0 +1,35 @@
+filters:
+  and:
+    - file.inFolder("trading/obchody")
+properties:
+  symbol:
+    displayName: Symbol
+  smer:
+    displayName: Smer
+  vstup:
+    displayName: Vstup
+  stopka:
+    displayName: Stopka
+  vystupna_hranica:
+    displayName: Vystupna hranica
+  riziko_usd:
+    displayName: Riziko USD
+  hodnota_usd:
+    displayName: Hodnota USD
+  stav:
+    displayName: Stav
+  datum_vstupu:
+    displayName: Datum vstupu
+views:
+  - type: table
+    name: Obchody
+    order:
+      - file.name
+      - symbol
+      - smer
+      - vstup
+      - stopka
+      - vystupna_hranica
+      - riziko_usd
+      - stav
+      - datum_vstupu

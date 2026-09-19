@@ -1,11 +1,8 @@
 # Obchody
 
 Každý obchod je tu **jedna poznámka** a v jej hlavičke (medzi `---`) sú polia:
-symbol, smer, vstup, stopka, výstup, stav, výsledok.
+symbol, smer, vstup, stopka, výstupná hranica, riziko, stav.
 
-**Ako si z toho spraviť tabuľku:**
-1. `Settings` → `Core plugins` → zapni **Bases** (ak tam nie je, treba aktualizovať Obsidian),
-   alebo si doinštaluj plugin **Dataview**.
-2. Pravým klikom na priečinok `obchody` → *New base* (nová tabuľka).
-3. Vyber si stĺpce, ktoré chceš vidieť — a máš tabuľku obchodov, ktorá sa plní sama,
-   lebo polia píšem priamo do poznámok ja.
+**Tabuľka je hotová** — je v súbore `obchody.base`. Stačí naň kliknúť (otvorí sa tabuľka so stĺpcami,
+ktoré sa samé plnia z poznámok). Ak by ju Obsidian nechcel otvoriť, treba mať zapnuté
+`Settings` → `Core plugins` → **Bases** (prípadne aktualizovať Obsidian).

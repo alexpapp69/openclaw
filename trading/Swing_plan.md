@@ -6,12 +6,15 @@ denné sviečky, 2017-08 → 2026-09, teda 9,1 roka).
 ## Pravidlá (verzia C — long+short; najlepší pomer výnos/riziko v testoch)
 
 1. **Kedy sa pozerám:** raz denne, po zatvorení dennej sviečky (00:00 UTC).
-2. **Trhový filter:** BTC musí byť nad svojím 200-dňovým priemerom. Ak nie je, neotváram nič.
-3. **Vstup (long):** denná sviečka zavrie **nad najvyššou cenou za posledných 20 dní** a zároveň je cena
-   nad 200-dňovým priemerom daného coinu. Vstup na otvorení nasledujúceho dňa.
-4. **Stop:** 2 × priemerný denný rozptyl (ATR14) pod vstupom. Nikdy neposúvam dole.
-5. **Výstup:** denná sviečka zavrie **pod najnižšou cenou za posledných 10 dní**. Žiadne čiastočné
-   výstupy, žiadne pevné ciele — v testoch boli najhoršie.
+2. **Vstup (long):** denná sviečka zavrie **nad najvyššou cenou za posledných 20 dní**. Nič viac —
+   BTC filter aj 200-dňová podmienka pre long sú vypnuté (presne tak to má testovaná verzia C).
+   Vstup na otvorení nasledujúceho dňa.
+3. **Vstup (short):** denná sviečka zavrie **pod najnižšou cenou za posledných 20 dní** a zároveň je
+   cena **pod 200-dňovým priemerom** daného coinu. Vstup na otvorení nasledujúceho dňa.
+4. **Stop:** 2 × priemerný denný rozptyl (ATR14) od vstupu (long pod vstupom, short nad vstupom).
+   Nikdy neposúvam.
+5. **Výstup:** long zavrie **pod najnižšou cenou za 10 dní**; short zavrie **nad najvyššou cenou za
+   10 dní**. Žiadne čiastočné výstupy, žiadne pevné ciele — v testoch boli najhoršie.
 6. **Riziko:** 1 % kapitálu na obchod. Max **6 otvorených pozícií** naraz. Notional max 3× hodnota slotu.
 7. **Univerzum:** 10–20 likvidných coinov s dlhou históriou (BTC, ETH, SOL, BNB, LINK, DOGE, ADA,
    AVAX, XRP, LTC, TRX, XLM, AAVE, UNI, NEAR, FIL, DASH, ZEC, HBAR, LSK).
@@ -20,15 +23,18 @@ denné sviečky, 2017-08 → 2026-09, teda 9,1 roka).
 
 | variant | účet z 10 000 | ročne | max pokles | obchodov | ziskových |
 |---|---|---|---|---|---|
-| A prielom 20d / výstup 10d | 175 788 | +37,1 % | 41,9 % | 296 | 35,8 % |
-| B prielom 20d / výstup pod EMA50 | 533 123 | +54,9 % | 55,3 % | 268 | 34,3 % |
-| C A + shorty (obojsmerne) | 277 334 | +44,2 % | 34,0 % | 641 | 37,0 % |
-| D návrat k EMA20 / výstup 10d | 155 842 | +35,3 % | 31,9 % | 386 | 36,5 % |
-| **G A + filter BTC nad EMA200** | **139 975** | **+33,7 %** | **41,8 %** | 265 | 34,3 % |
-| H G + širší stop 3×ATR | 72 899 | +24,4 % | 26,8 % | 236 | 39,4 % |
+| A prielom 20d / výstup 10d | 217 588 | +40,3 % | 41,9 % | 296 | 35,8 % |
+| B prielom 20d / výstup pod EMA50 | 679 265 | +59,1 % | 55,3 % | 268 | 34,3 % |
+| C A + shorty (obojsmerne) | 321 421 | +46,5 % | 34,0 % | 641 | 37,0 % |
+| D návrat k EMA20 / výstup 10d | 214 323 | +40,1 % | 31,9 % | 386 | 36,5 % |
+| G A + filter BTC nad EMA200 | 217 588 | +40,3 % | 41,9 % | 296 | 35,8 % |
+| H G + širší stop 3×ATR | 93 510 | +27,9 % | 26,8 % | 267 | 40,4 % |
+
+_Prepočítané 2026-09-28 (história sa doplnila do 19. 9.; jediný podstatný rozdiel je lepší rok 2026,
+zvyšok sedí). **G vychádza presne ako A — BTC filter je v skripte mŕtvy kód, naozaj nič nerobí.**_
 
 Roky (variant A): 2018 −5 %, 2019 +23 %, 2020 +131 %, 2021 +170 %, **2022 −12 %**, 2023 +25 %,
-2024 +29 %, 2025 +54 %, 2026 +1 %. Ziskových 11 z 20 coinov.
+2024 +29 %, 2025 +54 %, 2026 +25 %. Prakticky ziskových 11 z 20 coinov (C: 14 z 20).
 
 ## Prečo to funguje (a prečo to nie je zázrak)
 
@@ -69,6 +75,11 @@ výstup pod EMA50 (54,9 %/r, ale 55 % pokles) · BTC filter bez efektu · práca
 
 ## Nasadene 2026-09-19 (long+short, paper)
 
+- **Oprava 2026-09-28 (Alex: „chcel som verziu C").** Bežiaci skript mal pri **longu** navyše
+  podmienku „nad 200-dňovým priemerom", ktorú testovaná C nemá (C ju má len pri shortoch).
+  Long je preto zbavený tejto podmienky → skript teraz presne sedí s testovanou C.
+  Dôsledok: C = +46,5 %/r (s filtrom bolo +40,8 %/r); rozdiel je najväčší v roku 2023 (+66 % vs +7 %).
+  Existujúce otvorené pozície sa nemenia, mení sa len to, čo sa bude brat do budúcna.
 - Skript `exports/scripts/swing_live.py` (check/apply/status), stav `exports/swing_state.json`,
   paper účet **10 000 USD**, riziko 1 % (100 USD) na obchod, max 6 pozícií.
 - Denná kontrola po zatvorení sviečky: automation `e49928b1-8fda-447d-b910-96fcfa252dc5`,

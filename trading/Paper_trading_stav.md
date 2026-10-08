@@ -1,17 +1,15 @@
 # Paper trading — stav
 
-_Aktualizované: 2026-10-03 17:36 UTC_
+_Aktualizované: 2026-10-08 00:10 UTC_
 
-**Kapitál: 10,477 USD** (štart 10 000, papier) · otvorené pozície: 6/6 · uzavretých obchodov: 1
+**Kapitál: 10,341 USD** (štart 10 000, papier) · otvorené pozície: 4/6 · uzavretých obchodov: 3
 
 | pozícia | smer | vstup | stopka | výstupná hranica | cena teraz | nerealizované |
 |---|---|---|---|---|---|---|
-| SOL | long | 112.7425 | 102.2907 | 110.6900 | 119.8200 | +68 USD |
-| UNI | long | 8.8668 | 7.4621 | 8.4470 | 9.0210 | +11 USD |
-| NEAR | long | 3.7638 | 3.2260 | 3.9160 | 4.6890 | +172 USD |
-| AVAX | long | 10.0960 | 9.1055 | 9.9660 | 11.1250 | +103 USD |
-| HBAR | long | 0.0865 | 0.0782 | 0.0849 | 0.1021 | +191 USD |
-| AAVE | long | 179.6259 | 156.5247 | 134.9300 | 178.5400 | -5 USD |
+| NEAR | long | 3.7638 | 3.2260 | 4.5480 | 5.3350 | +293 USD |
+| AVAX | long | 10.0960 | 9.1055 | 10.1450 | 11.0720 | +98 USD |
+| HBAR | long | 0.0865 | 0.0782 | 0.0918 | 0.0928 | +77 USD |
+| AAVE | long | 179.6259 | 156.5247 | 144.0100 | 173.7900 | -27 USD |
 
 Tabuľka všetkých obchodov: [[obchody.base|obchody]]
 

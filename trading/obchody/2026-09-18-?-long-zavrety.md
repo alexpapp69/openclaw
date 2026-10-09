@@ -2,19 +2,19 @@
 typ: obchod
 symbol: ?
 smer: long
-vstup: 8.8668
-stopka: 7.4621
-vystup: 7.9084
-vysledok_r: -0.69
-pnl_usd: -69
+vstup: 3.7638
+stopka: 3.226
+vystup: 4.4631
+vysledok_r: 1.29
+pnl_usd: 129
 stav: zavrety
 datum_vstupu: 2026-09-18
-datum_vystupu: 2026-10-07
+datum_vystupu: 2026-10-08
 ---
 
 # ? long — zavretý obchod
 
-Vstup 8.8668 → výstup 7.9084 (trend sa zlomil (close za 10-dňovým extrémom)).
+Vstup 3.7638 → výstup 4.4631 (trend sa zlomil (close za 10-dňovým extrémom)).
 
-Výsledok **-0.69× riziko** (-69 USD).
+Výsledok **+1.29× riziko** (+129 USD).
 
